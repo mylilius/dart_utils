@@ -1,4 +1,4 @@
-library mylilius_utils;
+library dart_utils;
 
 import 'dart:async';
 import 'package:rxdart/rxdart.dart' show BehaviorSubject;

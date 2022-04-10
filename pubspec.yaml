@@ -1,7 +1,7 @@
-name: mylilius_utils
-description: MyLilius Utils
-version: 0.0.1
-homepage:
+name: dart_utils
+description: Dart Utils for MyLilius
+version: 0.1.0
+#homepage:
 
 environment:
   sdk: ">=2.17.0-69.2.beta <3.0.0"

@@ -1,8 +1,8 @@
-library mylilius_utils;
+library dart_utils;
 
 import 'dart:async';
 
-import 'package:mylilius_utils/state/state.dart';
+import 'package:dart_utils/state/state.dart';
 
 
 class TimedState<T> extends SingleState<T> {
