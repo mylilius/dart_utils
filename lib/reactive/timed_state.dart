@@ -8,7 +8,7 @@ import 'package:dart_utils/state/state.dart';
 class TimedState<T> extends SingleState<T> {
 
   late final Timer _timer;
-  late final int _duration;
+  late int _duration;
 
   TimedState(Function fn, int period, [int? duration]) {
     if (duration != null) {
@@ -18,7 +18,7 @@ class TimedState<T> extends SingleState<T> {
       T _value = fn();
       setState(_value);
       if (duration != null) {
-        _duration -= duration ~/ period;
+        _duration -= period;
         if (_duration == 0) {
           dispose();
         }
