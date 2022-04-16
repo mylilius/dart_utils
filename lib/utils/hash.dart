@@ -16,17 +16,16 @@ class Hash {
   }
 
   String hashPassword(Uint8List _salt, String _password) {
-    print("A");
-    final Argon2Parameters _params = _buildParameters(_salt);
-    print("B");
-    _generator.init(_params);
-    print("C");
-    final Uint8List _passwordKey = _generator.process(Uint8List.fromList(_password.codeUnits));
-    print("D");
-    final Uint8List _hashedBytes = _generateHash(_passwordKey);
-    print("E");
-    // return _generator.
-    return HEX.encode(_keccakDigest.process(_hashedBytes));
+    try {
+      final Argon2Parameters _params = _buildParameters(_salt);
+      _generator.init(_params);
+      final Uint8List _passwordKey = _generator.process(Uint8List.fromList(_password.codeUnits));
+      final Uint8List _hashedBytes = _generateHash(_passwordKey);
+      return HEX.encode(_keccakDigest.process(_hashedBytes));
+    } catch (err) {
+      throw Exception(err);
+      return "";
+    }
   }
 
   Uint8List generateSalt() {
@@ -34,11 +33,7 @@ class Hash {
   }
 
   Uint8List _generateHash(Uint8List _key) {
-    print("Key: ${_key.length}");
-    print("Key2: ${_key.lengthInBytes}");
     Uint8List _result = Uint8List(32);
-    print("Result: ${_result.length}");
-    print("Result2: ${_result.lengthInBytes}");
     _generator.deriveKey(_key, 0, _result, 0);
     return _result;
   }

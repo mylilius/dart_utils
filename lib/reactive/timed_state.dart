@@ -15,8 +15,12 @@ class TimedState<T> extends SingleState<T> {
       _duration = duration;
     }
     _timer = Timer.periodic(Duration(seconds: period), (Timer _t) {
-      T _value = fn();
-      setState(_value);
+      T? _value = fn();
+      print("Timer Value: ${_value}");
+      if (_value != null) {
+        print("Setting State");
+        setState(_value);
+      }
       if (duration != null) {
         _duration -= period;
         if (_duration == 0) {
