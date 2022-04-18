@@ -1,11 +1,15 @@
+import 'dart:typed_data';
+
 import 'package:encrypt/encrypt.dart';
 
 class Encryption {
   late final Encrypter _encrypter;
   final Key key = Key.fromLength(32);
-  final IV iv = IV.fromLength(16);
+  late IV iv;
 
-  Encryption() {
+  Encryption(String v) {
+    iv = IV.fromUtf8(v);
+
     _encrypter = Encrypter(AES(key));
   }
 
@@ -15,6 +19,6 @@ class Encryption {
   }
 
   String decrypt(String base64) {
-    return _encrypter.decrypt64(base64, iv: IV.fromLength(15));
+    return _encrypter.decrypt64(base64, iv: iv);
   }
 }
