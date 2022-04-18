@@ -18,6 +18,8 @@ dependencies:
   pointycastle: ^3.5.2
   rxdart: ^0.27.3
   url_launcher: ^6.0.20
+  web3dart:
+    path: /Users/thegreataxios/MyLilius/web3dart
 
 dev_dependencies:
   flutter_test:
