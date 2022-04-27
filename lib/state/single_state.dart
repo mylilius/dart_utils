@@ -52,4 +52,8 @@ class SingleState<T> {
   Future<void> dispose() async {
     await _subject.close();
   }
+
+  bool hasValue() {
+    return _subject.hasValue;
+  }
 }

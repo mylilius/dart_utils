@@ -49,7 +49,7 @@ class WalletUtils {
     }
   }
 
-  Wallet buildWallet(String _encryptedJsonWallet, String _password) {
+  static Wallet buildWallet(String _encryptedJsonWallet, String _password) {
     try {
       final Wallet _wallet = Wallet.fromJson(_encryptedJsonWallet, _password);
       return _wallet;
