@@ -1,5 +1,7 @@
 export 'api.dart';
+export 'big_int.dart';
 export 'encryption.dart';
+export 'ethereum_address.dart';
 export 'hash.dart';
 export 'mnemonic.dart';
 export 'skale_pow.dart';
